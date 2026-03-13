@@ -4,6 +4,10 @@ A script-based setup to **change Wezterm terminal themes** quickly via an intera
 
 ## Features
 
+
+https://github.com/user-attachments/assets/122bdce5-fa65-448e-9439-f3470809f8ef
+
+
 - **Interactive theme picker** — Fuzzy search through themes with [fzf](https://github.com/junegunn/fzf)
 - **Live preview** — See the selected theme applied to the terminal as you navigate the list
 - **One keybinding** — `Ctrl+Shift+T` opens the switcher from inside WezTerm
