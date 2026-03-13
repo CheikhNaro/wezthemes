@@ -55,15 +55,7 @@ https://github.com/user-attachments/assets/122bdce5-fa65-448e-9439-f3470809f8ef
 2. A pane opens on the right with an fzf list of themes; the current theme is shown in the prompt.
 3. Move with arrow keys or type to filter; the terminal **previews** the theme as you move the selection.
 4. Press **Enter** to **apply** the highlighted theme and close the picker.
-5. Press **Escape** (or cancel without selecting) to **cancel** and keep your current theme; the pane closes and the window restores.
-
-### From outside Wezterm (optional)
-
-On Fedora/GNOME/Wayland you can trigger the same switcher from a launcher or terminal:
-
-```bash
-~/.config/wezterm/scripts/wezthemes.sh
-```
+5. Press **Escape** to **cancel** and keep your current theme; the pane closes and the window restores to its original size.
 
 Or add an alias (e.g. in `~/.bashrc` or `~/.zshrc`):
 
@@ -72,25 +64,13 @@ alias wezthemes='touch /tmp/wezterm_trigger_theme_switcher'
 alias wt=wezthemes
 ```
 
-Then run `wezthemes` or `wt` from anywhere.
-
-## Project layout
-
-| File / folder        | Role |
-|----------------------|------|
-| `wezterm.lua`        | Main Wezterm config: loads themes, defines `Ctrl+Shift+T`, opens the fzf pane and applies/previews themes. |
-| `globals.lua`        | Stores `current_theme` and `preview_theme` (current = applied, preview = temporary while choosing). |
-| `theme.lua`          | List of theme names (Wezterm built-in color scheme names) used by the picker. |
-| `scripts/apply_theme.lua`   | Writes the chosen theme to `globals.lua` as `current_theme` and clears `preview_theme`. |
-| `scripts/preview_theme.lua`| Sets `preview_theme` in `globals.lua` for live preview in the picker. |
-| `scripts/cancel_theme.lua` | Clears `preview_theme` when you cancel the picker. |
-| `scripts/wezthemes.sh`     | Optional: focuses Wezterm and sends `Ctrl+Shift+T` (for use from outside Wezterm). |
+Then run `wezthemes` or `wt`.
 
 ## Customization
 
 - **Default theme** — Edit `globals.lua` and set `current_theme` to the name of any theme listed in `theme.lua` (e.g. `"Adventure"`, `"Catppuccin Mocha"`).
 - **Theme list** — Add or remove entries in `theme.lua`; names must match Wezterm’s built-in color scheme names (see Wezterm docs or the existing list).
-- **Keybinding** — In `wezterm.lua`, change the key in the `keys` table (e.g. the entry with `action = wezterm.action_callback(theme_switcher)`).
+- **Keybinding** — In `wezterm.lua`, change the key in the `keys` table (e.g. the entry with `action = wezterm.action_callback(theme_switcher)`). You can also change the other keys to match your preferences. 
 
 ## Notes
 
